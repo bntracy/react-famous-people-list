@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './FamousSection.css';
+import FamousPersonForm from '../FamousPersonForm/FamousPersonForm';
 
 function FamousSection() {
   let [famousPersonName, setPersonName] = useState('');
@@ -50,13 +51,13 @@ function FamousSection() {
 
     return (
       <section className="new-person-section">
-        <form onSubmit={addPerson}>
-          <label htmlFor="name-input">Name:</label>
-          <input id="name-input" value={famousPersonName} onChange={e => setPersonName(e.target.value)} />
-          <label htmlFor="role-input">Famous for:</label>
-          <input id="role-input" value={famousPersonRole} onChange={e => setPersonRole(e.target.value)} />
-          <button type="submit">Done</button>
-        </form>
+        <FamousPersonForm 
+          addPerson={addPerson}
+          famousPersonName={famousPersonName}
+          setPersonName={setPersonName}
+          famousPersonRole={famousPersonRole}
+          setPersonRole={setPersonRole}
+        />
         <p>
           {famousPersonName} is famous for "{famousPersonRole}".
         </p>
