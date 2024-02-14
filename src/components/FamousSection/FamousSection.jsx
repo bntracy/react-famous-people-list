@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './FamousSection.css';
 import FamousPersonForm from '../FamousPersonForm/FamousPersonForm';
+import FamousPersonList from '../FamousPersonList/FamousPersonList';
 
 function FamousSection() {
   let [famousPersonName, setPersonName] = useState('');
@@ -61,10 +62,7 @@ function FamousSection() {
         <p>
           {famousPersonName} is famous for "{famousPersonRole}".
         </p>
-        <ul>
-          {/* Render the list of famous people */}
-          {famousPeopleArray.map(person => (<li key={person.id}>{person.name} is famous for "{person.role}".</li>))}
-        </ul>
+        <FamousPersonList famousPeopleArray={famousPeopleArray} />
       </section>
     );
 }
