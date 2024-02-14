@@ -8,7 +8,7 @@ function FamousSection() {
   let [famousPeopleArray, setPeopleArray] = useState([]);
 
   const fetchPeople = () => {
-    // TODO: fetch the list of people from the server
+    // fetch the list of people from the server
     axios({
       method: 'GET',
       url: 'api/people/'
@@ -19,7 +19,7 @@ function FamousSection() {
     });
   }
 
-  // TODO: on load, call the fetchPeople() function
+  // on load, call the fetchPeople() function
   useEffect(fetchPeople, []);
 
   const addPerson = (evt) => {
@@ -46,7 +46,7 @@ function FamousSection() {
           {famousPersonName} is famous for "{famousPersonRole}".
         </p>
         <ul>
-          {/* TODO: Render the list of famous people */}
+          {/* Render the list of famous people */}
           {famousPeopleArray.map(person => (<li key={person.id}>{person.name} is famous for "{person.role}".</li>))}
         </ul>
       </section>
